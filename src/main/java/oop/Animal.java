@@ -1,9 +1,10 @@
-package OOP;
+package oop;
 
 public abstract class Animal {
     String name;
     int hungryStatus;
     int weight;
-    abstract void walk();
-    abstract void eat();
+
+    protected abstract void walk();
+    protected abstract void eat();
 }
