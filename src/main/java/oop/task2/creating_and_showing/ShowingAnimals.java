@@ -5,7 +5,7 @@ import oop.task1.Animal;
 import java.util.ArrayList;
 
 public class ShowingAnimals {
-
+    //Метод, показывающий всех животных
     public void showingAnimals (ArrayList <Animal> menagerie) {
         for (Animal animal :
                 menagerie) {

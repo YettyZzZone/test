@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class CreateArrayList {
+    //Создаем объекты с животными
     Cat barsik = new Cat("Барсик", 10, 5);
     Cat murzik = new Cat("Мурзик", 5, 2);
     Cat vaska = new Cat("Васька", 4, 2);
@@ -20,9 +21,9 @@ public class CreateArrayList {
     Turtle rock = new Turtle("Рок", 9, 4);
     Turtle mock = new Turtle("Мок", 2, 2);
 
+    //Метод для создания коллекции с животными
     public ArrayList<Animal> createArrayList(){
-        ArrayList<Animal> menagerie = new ArrayList<Animal>(Arrays.asList(barsik, murzik, vaska, reks, ryzhik, misha,
+        return new ArrayList<Animal>(Arrays.asList(barsik, murzik, vaska, reks, ryzhik, misha,
                 sharik, pok, rock, mock));
-        return menagerie;
     }
 }
