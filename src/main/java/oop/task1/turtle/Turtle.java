@@ -1,6 +1,6 @@
-package oop.turtle;
+package oop.task1.turtle;
 
-import oop.Animal;
+import oop.task1.Animal;
 
 public class Turtle extends Animal {
     private String name;

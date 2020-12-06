@@ -1,6 +1,6 @@
-package oop.dog;
+package oop.task1.dog;
 
-import oop.Animal;
+import oop.task1.Animal;
 
 public final class Dog extends Animal {
     private String name;

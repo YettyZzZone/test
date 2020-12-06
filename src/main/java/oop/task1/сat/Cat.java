@@ -1,6 +1,6 @@
-package oop.сat;
+package oop.task1.сat;
 
-import oop.Animal;
+import oop.task1.Animal;
 
 public final class Cat extends Animal {
     private String name;
