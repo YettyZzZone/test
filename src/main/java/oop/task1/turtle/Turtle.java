@@ -2,7 +2,7 @@ package oop.task1.turtle;
 
 import oop.task1.Animal;
 
-public class Turtle extends Animal {
+public final class Turtle extends Animal {
     private String name;
     private int hungryStatus;
     private int weight;
