@@ -1,9 +1,9 @@
 package oop.task2;
 
 import oop.task1.Animal;
-import oop.task1.сat.Cat;
 import oop.task2.creating_and_showing.CreateArrayList;
 import oop.task2.creating_and_showing.ShowingAnimals;
+import oop.task2.show_interval.ShowInterval;
 import oop.task2.show_only.ShowOnlyThisClass;
 import oop.task2.sort.Sorting;
 
@@ -73,6 +73,17 @@ public class Runner {
                             sorting.sortingAnimals(3);
                             break;
                     }
+                    break;
+                case 4:
+                    System.out.println("Введи начальную границу диапозона веса животного: ");
+                    //Считываем пользовательский ввод
+                    int choiceWeigthStart = userChoice.nextInt();
+                    System.out.println("Введи конечную границу диапозона веса животного: ");
+                    //Считываем пользовательский ввод
+                    int choiceWeigthEnd = userChoice.nextInt();
+                    ShowInterval showInterval = new ShowInterval();
+                    showInterval.showAnimalsFromInterval(choiceWeigthStart, choiceWeigthEnd);
+                    break;
             }
         }
     }
