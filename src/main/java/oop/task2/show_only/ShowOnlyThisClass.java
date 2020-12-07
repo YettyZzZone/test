@@ -1,6 +1,9 @@
 package oop.task2.show_only;
 
 import oop.task1.Animal;
+import oop.task1.dog.Dog;
+import oop.task1.turtle.Turtle;
+import oop.task1.сat.Cat;
 import oop.task2.creating_and_showing.CreateArrayList;
 
 
@@ -17,7 +20,7 @@ public class ShowOnlyThisClass {
             case 1:
                 for (Animal animal :
                         menagerie.createArrayList()) {
-                    if (animal.getClass().getSimpleName().equals("Cat")) {
+                    if (animal instanceof Cat) {
                         System.out.println("У животного с кличкой " + animal.getName()
                                 + " уровень голода равен " + animal.getHungryStatus()
                                 + ", а текущий вес - " + animal.getWeight());
@@ -27,7 +30,7 @@ public class ShowOnlyThisClass {
             case 2:
                 for (Animal animal :
                         menagerie.createArrayList()) {
-                    if (animal.getClass().getSimpleName().equals("Dog")) {
+                    if (animal instanceof Dog) {
                         System.out.println("У животного с кличкой " + animal.getName()
                                 + " уровень голода равен " + animal.getHungryStatus()
                                 + ", а текущий вес - " + animal.getWeight());
@@ -37,7 +40,7 @@ public class ShowOnlyThisClass {
             case 3:
                 for (Animal animal :
                         menagerie.createArrayList()) {
-                    if (animal.getClass().getSimpleName().equals("Turtle")) {
+                    if (animal instanceof Turtle) {
                         System.out.println("У животного с кличкой " + animal.getName()
                                 + " уровень голода равен " + animal.getHungryStatus()
                                 + ", а текущий вес - " + animal.getWeight());

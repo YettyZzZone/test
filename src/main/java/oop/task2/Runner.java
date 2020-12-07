@@ -51,6 +51,7 @@ public class Runner {
                             onlyThisClass.showOnlyThisClass(3);
                             break;
                     }
+                    break;
                 case 3:
                     System.out.println("Выбери, по какому параметру ты хочешь отсортировать коллекцию: \n" +
                             "1. Имя\n" +
