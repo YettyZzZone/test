@@ -6,7 +6,7 @@ import oop.task1.turtle.Turtle;
 import oop.task1.сat.Cat;
 import oop.task2.creating_and_showing.CreateArrayList;
 
-
+//fixme слишком сильно начал дробить. этот класс не несет в себе никакой необходимости. тем более его объект
 public class ShowOnlyThisClass {
     //Создаем экземпляр класса для создания ArrayList
     CreateArrayList menagerie = new CreateArrayList();

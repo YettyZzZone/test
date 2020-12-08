@@ -6,7 +6,7 @@ import oop.task2.creating_and_showing.CreateArrayList;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-
+//fixme слишком сильно начал дробить. этот класс не несет в себе никакой необходимости. тем более его объект
 public class Sorting {
     //Создаем экземпляр класса для создания ArrayList
     CreateArrayList menagerie = new CreateArrayList();

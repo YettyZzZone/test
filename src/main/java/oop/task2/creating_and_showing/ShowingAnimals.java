@@ -4,6 +4,7 @@ import oop.task1.Animal;
 
 import java.util.ArrayList;
 
+//fixme слишком сильно начал дробить. этот класс не несет в себе никакой необходимости. тем более его объект
 public class ShowingAnimals {
     //Метод, показывающий всех животных
     public void showingAnimals (ArrayList <Animal> menagerie) {

@@ -8,6 +8,7 @@ import oop.task1.сat.Cat;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+//fixme слишком сильно начал дробить. этот класс не несет в себе никакой необходимости. тем более его объект
 public class CreateArrayList {
     //Создаем объекты с животными
     Cat barsik = new Cat("Барсик", 10, 5);
