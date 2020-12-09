@@ -1,9 +1,9 @@
 package oop.task1;
 
 public abstract class Animal {
-    String name;
-    int hungryStatus;
-    int weight;
+    private String name;
+    private int hungryStatus;
+    private int weight;
 
     protected abstract void walk();
     protected abstract void eat();
