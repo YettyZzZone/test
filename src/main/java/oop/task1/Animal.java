@@ -19,4 +19,11 @@ public abstract class Animal {
     public int getWeight() {
         return weight;
     }
+
+    @Override
+    public String toString() {
+        return "У животного с кличкой " + getName()
+                + " уровень голода равен " + getHungryStatus()
+                + ", а текущий вес - " + getWeight();
+    }
 }

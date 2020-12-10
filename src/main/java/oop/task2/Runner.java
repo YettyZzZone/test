@@ -11,22 +11,7 @@ import java.util.Scanner;
 public class Runner {
 
     public static void main(String[] args) {
-        //fixme main не должен выполнять миллион функций. у тебя же он отвечает и за создание питомника и за главное меню
-
-        //Создаем объекты с животными
-        Cat barsik = new Cat("Барсик", 10, 5);
-        Cat murzik = new Cat("Мурзик", 5, 2);
-        Cat vaska = new Cat("Васька", 4, 2);
-        Dog reks = new Dog("Рекс", 6, 10);
-        Dog ryzhik = new Dog("Рыжик", 10, 15);
-        Dog misha = new Dog("Миша", 2, 6);
-        Dog sharik = new Dog("Шарик", 6, 6);
-        Turtle pok = new Turtle("Пок", 7, 3);
-        Turtle rock = new Turtle("Рок", 9, 4);
-        Turtle mock = new Turtle("Мок", 2, 2);
-
-        //Создаем объект класса Nursery и передаем внутрь конструктора созданных животных
-        Nursery nursery = new Nursery(barsik, murzik, vaska, reks, ryzhik, misha, sharik, pok, rock, mock);
+        Nursery nursery = Runner.arrayInitialization();
         Menu menu = new Menu();
         Scanner scanner = new Scanner(System.in);
 
@@ -62,5 +47,21 @@ public class Runner {
         } catch (Exception e) {
             System.out.println("Вы ввели что-то не то");
         }
+    }
+    public static Nursery arrayInitialization (){
+        //Создаем объекты с животными
+        Cat barsik = new Cat("Барсик", 10, 5);
+        Cat murzik = new Cat("Мурзик", 5, 2);
+        Cat vaska = new Cat("Васька", 4, 2);
+        Dog reks = new Dog("Рекс", 6, 10);
+        Dog ryzhik = new Dog("Рыжик", 10, 15);
+        Dog misha = new Dog("Миша", 2, 6);
+        Dog sharik = new Dog("Шарик", 6, 6);
+        Turtle pok = new Turtle("Пок", 7, 3);
+        Turtle rock = new Turtle("Рок", 9, 4);
+        Turtle mock = new Turtle("Мок", 2, 2);
+
+        //Создаем объект класса Nursery и передаем внутрь конструктора созданных животных
+        return new Nursery(barsik, murzik, vaska, reks, ryzhik, misha, sharik, pok, rock, mock);
     }
 }

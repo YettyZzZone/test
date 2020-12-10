@@ -10,28 +10,20 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 
-//fixme файл содержит 2 ворнинга
 public class Nursery {
     //Объявляем переменную для хранения коллекции элементов с типом Animal
-    private ArrayList<Animal> animals;
+    private final ArrayList<Animal> animals;
 
-    //fixme ой-ой-ой-ой что это такое? убрать! Откуда появилось animal1, animal2...?
-    // а если я хочу создать питомник из 3-х животных? конструктор переписывать будешь?
-    // в java есть конструкция Object ... objects
     //В конструкторе инициализируем коллекцию
-    public Nursery(Animal animal1, Animal animal2, Animal animal3, Animal animal4, Animal animal5,
-                   Animal animal6, Animal animal7, Animal animal8, Animal animal9, Animal animal10){
-        animals = new ArrayList<Animal>(Arrays.asList(animal1, animal2, animal3,
-                animal4, animal5, animal6, animal7, animal8, animal9, animal10));
+    public Nursery(Animal ... animal){
+        animals = new ArrayList<Animal>(Arrays.asList(animal));
     }
 
     //Метод, показывающий всех животных
     public void printAnimals() {
         for (Animal animal :
                 animals) {
-            System.out.println("У животного с кличкой " + animal.getName()
-                    + " уровень голода равен " +animal.getHungryStatus()
-                    + ", а текущий вес - " + animal.getWeight());
+            System.out.println(animal.toString());
         }
     }
 
@@ -41,36 +33,14 @@ public class Nursery {
     //Цифре 3 соответствует класс - Turtle
     public void printOnlyThisClass(int animalClass) {
         switch (animalClass) {
-            //fixme видишь дублирование кода?
             case 1:
-                for (Animal animal :
-                        animals) {
-                    if (animal instanceof Cat) {
-                        System.out.println("У животного с кличкой " + animal.getName()
-                                + " уровень голода равен " + animal.getHungryStatus()
-                                + ", а текущий вес - " + animal.getWeight());
-                    }
-                }
+                printCollection(Cat.class);
                 break;
             case 2:
-                for (Animal animal :
-                        animals) {
-                    if (animal instanceof Dog) {
-                        System.out.println("У животного с кличкой " + animal.getName()
-                                + " уровень голода равен " + animal.getHungryStatus()
-                                + ", а текущий вес - " + animal.getWeight());
-                    }
-                }
+                printCollection(Dog.class);
                 break;
             case 3:
-                for (Animal animal :
-                        animals) {
-                    if (animal instanceof Turtle) {
-                        System.out.println("У животного с кличкой " + animal.getName()
-                                + " уровень голода равен " + animal.getHungryStatus()
-                                + ", а текущий вес - " + animal.getWeight());
-                    }
-                }
+                printCollection(Turtle.class);
                 break;
         }
     }
@@ -81,19 +51,13 @@ public class Nursery {
     //Цифре 3 соответствует параметр - вес
     public void sortAnimals(int animalParameter){
         switch (animalParameter) {
-            //fixme видишь дублирование кода?
             case 1:
                 Collections.sort(animals, new Comparator<Animal>() {
                     public int compare(Animal o1, Animal o2) {
                         return o1.getName().compareTo(o2.getName());
                     }
                 });
-                for (Animal animal :
-                        animals) {
-                    System.out.println("У животного с кличкой " + animal.getName()
-                            + " уровень голода равен " + animal.getHungryStatus()
-                            + ", а текущий вес - " + animal.getWeight());
-                }
+                printAnimals();
                 break;
             case 2:
                 Collections.sort(animals, new Comparator<Animal>() {
@@ -101,12 +65,7 @@ public class Nursery {
                         return o1.getHungryStatus() - (o2.getHungryStatus());
                     }
                 });
-                for (Animal animal :
-                        animals) {
-                    System.out.println("У животного с кличкой " + animal.getName()
-                            + " уровень голода равен " + animal.getHungryStatus()
-                            + ", а текущий вес - " + animal.getWeight());
-                }
+                printAnimals();
                 break;
             case 3:
                 Collections.sort(animals, new Comparator<Animal>() {
@@ -114,12 +73,7 @@ public class Nursery {
                         return o1.getWeight() - (o2.getWeight());
                     }
                 });
-                for (Animal animal :
-                        animals) {
-                    System.out.println("У животного с кличкой " + animal.getName()
-                            + " уровень голода равен " + animal.getHungryStatus()
-                            + ", а текущий вес - " + animal.getWeight());
-                }
+                printAnimals();
                 break;
         }
     }
@@ -129,14 +83,18 @@ public class Nursery {
         for (Animal animal :
                 animals) {
             if (animal.getWeight() >= weigthStart && animal.getWeight() <= weigthEnd) {
-                System.out.println("У животного с кличкой " + animal.getName()
-                        + " уровень голода равен " + animal.getHungryStatus()
-                        + ", а текущий вес - " + animal.getWeight());
+                System.out.println(animal.toString());
             }
         }
     }
 
-    public ArrayList<Animal> getAnimals() {
-        return animals;
+    //Выводим элементы коллекции, если они соответствуют классу, который передали внутрь метода
+    public void printCollection(Class<?> choiseClass){
+        for (Animal animal :
+                animals) {
+            if (choiseClass.isInstance(animal)) {
+                System.out.println(animal.toString());
+            }
+        }
     }
 }
