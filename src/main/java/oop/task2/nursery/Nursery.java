@@ -10,10 +10,14 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 
+//fixme файл содержит 2 ворнинга
 public class Nursery {
     //Объявляем переменную для хранения коллекции элементов с типом Animal
     private ArrayList<Animal> animals;
 
+    //fixme ой-ой-ой-ой что это такое? убрать! Откуда появилось animal1, animal2...?
+    // а если я хочу создать питомник из 3-х животных? конструктор переписывать будешь?
+    // в java есть конструкция Object ... objects
     //В конструкторе инициализируем коллекцию
     public Nursery(Animal animal1, Animal animal2, Animal animal3, Animal animal4, Animal animal5,
                    Animal animal6, Animal animal7, Animal animal8, Animal animal9, Animal animal10){
@@ -37,6 +41,7 @@ public class Nursery {
     //Цифре 3 соответствует класс - Turtle
     public void printOnlyThisClass(int animalClass) {
         switch (animalClass) {
+            //fixme видишь дублирование кода?
             case 1:
                 for (Animal animal :
                         animals) {
@@ -76,6 +81,7 @@ public class Nursery {
     //Цифре 3 соответствует параметр - вес
     public void sortAnimals(int animalParameter){
         switch (animalParameter) {
+            //fixme видишь дублирование кода?
             case 1:
                 Collections.sort(animals, new Comparator<Animal>() {
                     public int compare(Animal o1, Animal o2) {

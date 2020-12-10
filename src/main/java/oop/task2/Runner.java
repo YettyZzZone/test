@@ -11,6 +11,8 @@ import java.util.Scanner;
 public class Runner {
 
     public static void main(String[] args) {
+        //fixme main не должен выполнять миллион функций. у тебя же он отвечает и за создание питомника и за главное меню
+
         //Создаем объекты с животными
         Cat barsik = new Cat("Барсик", 10, 5);
         Cat murzik = new Cat("Мурзик", 5, 2);
