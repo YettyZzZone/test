@@ -1,5 +1,6 @@
 package oop.task2.nursery;
 
+import exceptions.TheSecondValueIsLessThanTheFirstException;
 import oop.task1.Animal;
 import oop.task1.dog.Dog;
 import oop.task1.turtle.Turtle;
@@ -82,7 +83,9 @@ public class Nursery {
     public void printAnimalsFromInterval(int weigthStart, int weigthEnd) {
         for (Animal animal :
                 animals) {
-            if (animal.getWeight() >= weigthStart && animal.getWeight() <= weigthEnd) {
+            if (weigthEnd < weigthStart) {
+                throw new TheSecondValueIsLessThanTheFirstException("Второе значение меньше первого!");
+            } else if (animal.getWeight() >= weigthStart && animal.getWeight() <= weigthEnd) {
                 System.out.println(animal.toString());
             }
         }

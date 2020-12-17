@@ -1,5 +1,6 @@
 package oop.task2;
 
+import exceptions.TheSecondValueIsLessThanTheFirstException;
 import exceptions.WeightLessThanZeroException;
 import oop.task1.dog.Dog;
 import oop.task1.turtle.Turtle;
@@ -36,11 +37,14 @@ public class Runner {
                         break;
                     case 4:
                         try{
+                            //Показываем животных, которые подходят под интервал веса,
+                            //заданного пользователем
                             nursery.printAnimalsFromInterval(menu.enterStartRangeValues(), menu.enterEndRangeValues());
                         } catch (WeightLessThanZeroException e){
                             System.out.println(e.getMessage());
+                        } catch (TheSecondValueIsLessThanTheFirstException e) {
+                            System.out.println(e.getMessage());
                         }
-
                         break;
                 }
             }
