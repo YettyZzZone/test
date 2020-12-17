@@ -1,5 +1,6 @@
 package oop.task2.menu;
 
+import exceptions.OutOfMenuListException;
 import exceptions.WeightLessThanZeroException;
 import oop.task2.nursery.Nursery;
 
@@ -87,5 +88,14 @@ public class Menu {
         return choiceWeigthEnd;
     }
 
+    //Метод, считывающий пользовательский ввод для выбора вариантов меню
+    public int menuItemSelection() throws OutOfMenuListException {
+        int userChoise = scanner.nextInt();
+        if (userChoise == 1 || userChoise == 2 || userChoise == 3 || userChoise == 4) {
+            return userChoise;
+        } else {
+            throw new OutOfMenuListException("Вы ввели некорректный пункт меню");
+        }
+    }
 
 }

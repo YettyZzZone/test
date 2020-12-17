@@ -1,5 +1,6 @@
 package oop.task2;
 
+import exceptions.OutOfMenuListException;
 import exceptions.TheSecondValueIsLessThanTheFirstException;
 import exceptions.WeightLessThanZeroException;
 import oop.task1.dog.Dog;
@@ -8,6 +9,7 @@ import oop.task1.сat.Cat;
 import oop.task2.menu.Menu;
 import oop.task2.nursery.Nursery;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Runner {
@@ -21,9 +23,7 @@ public class Runner {
             while (true) {
                 //Показываем главное меню
                 menu.showMainMenu();
-                //Считываем пользовательский ввод
-                int userChoice = scanner.nextInt();
-                switch (userChoice){
+                switch (menu.menuItemSelection()){
                     //Показываем весь питомник
                     case 1 :
                         nursery.printAnimals();
@@ -48,8 +48,10 @@ public class Runner {
                         break;
                 }
             }
-        } catch (Exception e) {
-            System.out.println("Вы ввели что-то не то");
+        } catch (OutOfMenuListException e) {
+            System.out.println(e.getMessage());
+        } catch (InputMismatchException e) {
+            System.out.println("Вы ввели текст, вместо цифры!");
         }
     }
     public static Nursery arrayInitialization (){
