@@ -1,5 +1,6 @@
 package oop.task2;
 
+import exceptions.WeightLessThanZeroException;
 import oop.task1.dog.Dog;
 import oop.task1.turtle.Turtle;
 import oop.task1.сat.Cat;
@@ -34,13 +35,12 @@ public class Runner {
                         menu.sortAnimals(nursery);
                         break;
                     case 4:
-                        System.out.println("Введи начальную границу диапозона веса животного: ");
-                        //Считываем пользовательский ввод
-                        int choiceWeigthStart = scanner.nextInt();
-                        System.out.println("Введи конечную границу диапозона веса животного: ");
-                        //Считываем пользовательский ввод
-                        int choiceWeigthEnd = scanner.nextInt();
-                        nursery.printAnimalsFromInterval(choiceWeigthStart, choiceWeigthEnd);
+                        try{
+                            nursery.printAnimalsFromInterval(menu.enterStartRangeValues(), menu.enterEndRangeValues());
+                        } catch (WeightLessThanZeroException e){
+                            System.out.println(e.getMessage());
+                        }
+
                         break;
                 }
             }

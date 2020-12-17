@@ -1,13 +1,15 @@
 package oop.task2.menu;
 
+import exceptions.WeightLessThanZeroException;
 import oop.task2.nursery.Nursery;
 
 import java.util.Scanner;
 
 public class Menu {
     Scanner scanner = new Scanner(System.in);
+
     //Метод, показывающий главное меню программы
-    public void showMainMenu(){
+    public void showMainMenu() {
         System.out.println("Введи цифру необходимого тебе действия: \n" +
                 "1. Показать весь питомник\n" +
                 "2. Показать только выбранный вид животных\n" +
@@ -20,7 +22,7 @@ public class Menu {
     //1 - Кошки
     //2 - Собаки
     //3 - Черепахи
-    public void printOnlyThisClass(Nursery nursery){
+    public void printOnlyThisClass(Nursery nursery) {
         System.out.println("Выбери, какой вид животных ты хочешь увидеть: \n" +
                 "1. Кошки\n" +
                 "2. Собаки\n" +
@@ -28,7 +30,7 @@ public class Menu {
         int userSelectedClass = scanner.nextInt();
         //В зависимости от выбора пользователя, прокидываем в метод
         //число, соответствующее определенному классу животного
-        switch (userSelectedClass){
+        switch (userSelectedClass) {
             case 1:
                 nursery.printOnlyThisClass(1);
                 break;
@@ -52,7 +54,7 @@ public class Menu {
         int userSelectedParameter = scanner.nextInt();
         //В зависимости от выбора пользователя, прокидываем в метод
         //число, соответствующее определенному параметру сортировки
-        switch (userSelectedParameter){
+        switch (userSelectedParameter) {
             case 1:
                 nursery.sortAnimals(1);
                 break;
@@ -65,6 +67,25 @@ public class Menu {
         }
     }
 
+    //Метод, считывающий пользовательский ввод веса
+    public int enterStartRangeValues() {
+        System.out.println("Введи начальную границу диапозона веса животного: ");
+        //Считываем пользовательский ввод
+        int choiceWeigthStart = scanner.nextInt();
+        if (choiceWeigthStart < 0) {
+            throw new WeightLessThanZeroException("Параметр веса животного меньше ноля!");
+        }
+        return choiceWeigthStart;
+    }
+    //Метод, считывающий конечное значение веса животного
+    public int enterEndRangeValues() {
+        System.out.println("Введи конечную границу диапозона веса животного: ");
+        int choiceWeigthEnd = scanner.nextInt();
+        if (choiceWeigthEnd < 0) {
+            throw new WeightLessThanZeroException("Параметр веса животного меньше ноля!");
+        }
+        return choiceWeigthEnd;
+    }
 
 
 }
