@@ -1,6 +1,7 @@
 package oop.task2;
 
 import exceptions.OutOfMenuListException;
+import exceptions.OutOfSortTypeListException;
 import exceptions.TheSecondValueIsLessThanTheFirstException;
 import exceptions.WeightLessThanZeroException;
 import oop.task1.dog.Dog;
@@ -30,11 +31,23 @@ public class Runner {
                         break;
                     //Показываем только выбранный вид животных
                     case 2:
-                        menu.printOnlyThisClass(nursery);
-                        break;
+                        try {
+                            menu.printOnlyThisClass(nursery);
+                            break;
+                        } catch (OutOfSortTypeListException e) {
+                            System.out.println(e.getMessage());
+                        } catch (InputMismatchException e) {
+                            System.out.println("Вы ввели текст, вместо цифры!");
+                        }
                     case 3:
-                        menu.sortAnimals(nursery);
-                        break;
+                        try {
+                            menu.sortAnimals(nursery);
+                            break;
+                        } catch (OutOfSortTypeListException e) {
+                            System.out.println(e.getMessage());
+                        } catch (InputMismatchException e) {
+                            System.out.println("Вы ввели текст, вместо цифры!");
+                        }
                     case 4:
                         try{
                             //Показываем животных, которые подходят под интервал веса,
@@ -47,11 +60,14 @@ public class Runner {
                         }
                         break;
                 }
+                break;
             }
         } catch (OutOfMenuListException e) {
             System.out.println(e.getMessage());
         } catch (InputMismatchException e) {
             System.out.println("Вы ввели текст, вместо цифры!");
+        } finally {
+            System.out.println("Выполнение программы завершено");
         }
     }
     public static Nursery arrayInitialization (){

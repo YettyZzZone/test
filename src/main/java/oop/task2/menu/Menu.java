@@ -1,6 +1,7 @@
 package oop.task2.menu;
 
 import exceptions.OutOfMenuListException;
+import exceptions.OutOfSortTypeListException;
 import exceptions.WeightLessThanZeroException;
 import oop.task2.nursery.Nursery;
 
@@ -23,48 +24,57 @@ public class Menu {
     //1 - Кошки
     //2 - Собаки
     //3 - Черепахи
-    public void printOnlyThisClass(Nursery nursery) {
+    public void printOnlyThisClass(Nursery nursery) throws OutOfSortTypeListException {
         System.out.println("Выбери, какой вид животных ты хочешь увидеть: \n" +
                 "1. Кошки\n" +
                 "2. Собаки\n" +
                 "3. Черепахи");
         int userSelectedClass = scanner.nextInt();
-        //В зависимости от выбора пользователя, прокидываем в метод
-        //число, соответствующее определенному классу животного
-        switch (userSelectedClass) {
-            case 1:
-                nursery.printOnlyThisClass(1);
-                break;
-            case 2:
-                nursery.printOnlyThisClass(2);
-                break;
-            case 3:
-                nursery.printOnlyThisClass(3);
-                break;
+        if (userSelectedClass == 1 || userSelectedClass == 2 || userSelectedClass == 3){
+            //В зависимости от выбора пользователя, прокидываем в метод
+            //число, соответствующее определенному классу животного
+            switch (userSelectedClass) {
+                case 1:
+                    nursery.printOnlyThisClass(1);
+                    break;
+                case 2:
+                    nursery.printOnlyThisClass(2);
+                    break;
+                case 3:
+                    nursery.printOnlyThisClass(3);
+                    break;
+            }
+        } else {
+            throw new OutOfSortTypeListException("Вы ввели некорректное число из меню!");
         }
+
     }
 
     //Метод, который сортирует животных по параметру,
     //Который ввел пользователь
-    public void sortAnimals(Nursery nursery) {
+    public void sortAnimals(Nursery nursery) throws OutOfSortTypeListException {
         System.out.println("Выбери, по какому параметру ты хочешь отсортировать коллекцию: \n" +
                 "1. Имя\n" +
                 "2. Уровень голода\n" +
                 "3. Вес");
         //Считываем пользовательский ввод
         int userSelectedParameter = scanner.nextInt();
-        //В зависимости от выбора пользователя, прокидываем в метод
-        //число, соответствующее определенному параметру сортировки
-        switch (userSelectedParameter) {
-            case 1:
-                nursery.sortAnimals(1);
-                break;
-            case 2:
-                nursery.sortAnimals(2);
-                break;
-            case 3:
-                nursery.sortAnimals(3);
-                break;
+        if (userSelectedParameter == 1 || userSelectedParameter == 2 || userSelectedParameter == 3){
+            //В зависимости от выбора пользователя, прокидываем в метод
+            //число, соответствующее определенному параметру сортировки
+            switch (userSelectedParameter) {
+                case 1:
+                    nursery.sortAnimals(1);
+                    break;
+                case 2:
+                    nursery.sortAnimals(2);
+                    break;
+                case 3:
+                    nursery.sortAnimals(3);
+                    break;
+            }
+        } else {
+            throw new OutOfSortTypeListException("Вы ввели некорректное число из меню!");
         }
     }
 
